@@ -1,12 +1,13 @@
 import css from './contactForm.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
-import { nanoid } from 'nanoid';
+
+import { addContact } from '../../redux/operations';
+import { selectContacts } from '../../redux/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(selectContacts);
 
   //Metoda tworzy kontakt i modyfikuje state dodajac do niego nowy kontakt
   const handleFormSubmit = event => {
@@ -14,7 +15,6 @@ export const ContactForm = () => {
 
     //Tworzy nowy obiekt - kontakt na podstawie danych z inputów
     const contact = {
-      id: nanoid(),
       name: event.target.elements.name.value,
       number: event.target.elements.number.value,
     };
