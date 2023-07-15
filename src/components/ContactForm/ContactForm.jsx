@@ -9,7 +9,7 @@ export const ContactForm = () => {
 
   const contacts = useSelector(selectContacts);
 
-  //Metoda tworzy kontakt i modyfikuje state dodajac do niego nowy kontakt
+  //funkcja tworzy kontakt i modyfikuje state dodajac do niego nowy kontakt
   const handleFormSubmit = event => {
     event.preventDefault();
 
